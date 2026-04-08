@@ -1,0 +1,340 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Página-1" id="_HDep-5LFVWriog04H9c">
+    <mxGraphModel dx="2378" dy="1380" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1200" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="e_usu" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;" value="Usuário" vertex="1">
+          <mxGeometry height="60" width="120" x="350" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="e_ins" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;" value="Instrutor" vertex="1">
+          <mxGeometry height="60" width="120" x="200" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="e_alu" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;" value="Aluno" vertex="1">
+          <mxGeometry height="60" width="120" x="600" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="e_cur" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;" value="Curso" vertex="1">
+          <mxGeometry height="60" width="120" x="1100" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="e_pla" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;" value="Plano" vertex="1">
+          <mxGeometry height="60" width="120" x="600" y="800" as="geometry" />
+        </mxCell>
+        <mxCell id="e_mod" parent="1" style="shape=ext;margin=3;double=1;whiteSpace=wrap;html=1;align=center;strokeWidth=2;" value="Módulo" vertex="1">
+          <mxGeometry height="60" width="120" x="1100" y="600" as="geometry" />
+        </mxCell>
+        <mxCell id="e_aul" parent="1" style="shape=ext;margin=3;double=1;whiteSpace=wrap;html=1;align=center;strokeWidth=2;" value="Aula" vertex="1">
+          <mxGeometry height="60" width="120" x="1100" y="800" as="geometry" />
+        </mxCell>
+        <mxCell id="e_ava" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;strokeWidth=2;" value="Avaliação" vertex="1">
+          <mxGeometry height="60" width="120" x="850" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="r_isa" parent="1" style="shape=triangle;direction=north;whiteSpace=wrap;html=1;" value="&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;ISA&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="60" x="420" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="r_vin" parent="1" style="rhombus;whiteSpace=wrap;html=1;" value="Vínculo" vertex="1">
+          <mxGeometry height="60" width="100" x="850" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="r_pos" parent="1" style="rhombus;whiteSpace=wrap;html=1;" value="Possui" vertex="1">
+          <mxGeometry height="60" width="100" x="610" y="600" as="geometry" />
+        </mxCell>
+        <mxCell id="r_cmo" parent="1" style="shape=rhombus;double=1;whiteSpace=wrap;html=1;" value="Contém" vertex="1">
+          <mxGeometry height="60" width="100" x="1110" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="r_cau" parent="1" style="shape=rhombus;double=1;whiteSpace=wrap;html=1;" value="Contém" vertex="1">
+          <mxGeometry height="60" width="100" x="1110" y="700" as="geometry" />
+        </mxCell>
+        <mxCell id="a_usu_cpf" parent="1" style="ellipse;whiteSpace=wrap;html=1;align=center;fontStyle=4;" value="CPF" vertex="1">
+          <mxGeometry height="40" width="90" x="250" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="a_usu_nom" parent="1" style="ellipse;whiteSpace=wrap;html=1;align=center;" value="Nome" vertex="1">
+          <mxGeometry height="40" width="90" x="350" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="a_usu_tip" parent="1" style="ellipse;whiteSpace=wrap;html=1;align=center;" value="Tipo" vertex="1">
+          <mxGeometry height="40" width="90" x="450" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="a_usu_dat" parent="1" style="ellipse;whiteSpace=wrap;html=1;align=center;" value="Data Nasc" vertex="1">
+          <mxGeometry height="40" width="90" x="550" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="a_usu_ema" parent="1" style="ellipse;whiteSpace=wrap;html=1;align=center;" value="Email" vertex="1">
+          <mxGeometry height="40" width="90" x="170" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="a_usu_tel" parent="1" style="ellipse;shape=doubleEllipse;whiteSpace=wrap;html=1;align=center;" value="Telefone" vertex="1">
+          <mxGeometry height="40" width="90" x="630" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="a_usu_loc" parent="1" style="ellipse;whiteSpace=wrap;html=1;align=center;" value="Localidade" vertex="1">
+          <mxGeometry height="40" width="90" x="200" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="a_usu_pai" parent="1" style="ellipse;whiteSpace=wrap;html=1;align=center;" value="País" vertex="1">
+          <mxGeometry height="30" width="80" x="50" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="a_usu_est" parent="1" style="ellipse;whiteSpace=wrap;html=1;align=center;" value="Estado" vertex="1">
+          <mxGeometry height="30" width="80" x="50" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="a_usu_cid" parent="1" style="ellipse;whiteSpace=wrap;html=1;align=center;" value="Cidade" vertex="1">
+          <mxGeometry height="30" width="80" x="50" y="250" as="geometry" />
+        </mxCell>
+        <mxCell id="a_ins_bio" parent="1" style="ellipse;whiteSpace=wrap;html=1;align=center;" value="Biografia" vertex="1">
+          <mxGeometry height="40" width="90" x="50" y="350" as="geometry" />
+        </mxCell>
+        <mxCell id="a_ins_esp" parent="1" style="ellipse;whiteSpace=wrap;html=1;align=center;" value="Especialização" vertex="1">
+          <mxGeometry height="40" width="110" x="50" y="450" as="geometry" />
+        </mxCell>
+        <mxCell id="a_alu_cur" parent="1" style="ellipse;whiteSpace=wrap;html=1;align=center;" value="Cursos Realizados" vertex="1">
+          <mxGeometry height="40" width="120" x="660" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="a_alu_tem" parent="1" style="ellipse;whiteSpace=wrap;html=1;align=center;" value="Tempo Plataforma" vertex="1">
+          <mxGeometry height="40" width="120" x="530" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="a_pla_id" parent="1" style="ellipse;whiteSpace=wrap;html=1;align=center;fontStyle=4;" value="ID Plano" vertex="1">
+          <mxGeometry height="40" width="90" x="750" y="750" as="geometry" />
+        </mxCell>
+        <mxCell id="a_pla_tip" parent="1" style="ellipse;whiteSpace=wrap;html=1;align=center;" value="Tipo" vertex="1">
+          <mxGeometry height="40" width="90" x="750" y="800" as="geometry" />
+        </mxCell>
+        <mxCell id="a_pla_dat" parent="1" style="ellipse;whiteSpace=wrap;html=1;align=center;" value="Data Validade" vertex="1">
+          <mxGeometry height="40" width="90" x="750" y="850" as="geometry" />
+        </mxCell>
+        <mxCell id="a_pla_lim" parent="1" style="ellipse;whiteSpace=wrap;html=1;align=center;" value="Limite Cursos" vertex="1">
+          <mxGeometry height="40" width="90" x="615" y="900" as="geometry" />
+        </mxCell>
+        <mxCell id="a_pla_ace" parent="1" style="ellipse;whiteSpace=wrap;html=1;align=center;" value="Acesso Tutor" vertex="1">
+          <mxGeometry height="40" width="90" x="450" y="900" as="geometry" />
+        </mxCell>
+        <mxCell id="a_pos_ini" parent="1" style="ellipse;whiteSpace=wrap;html=1;align=center;" value="Data Início" vertex="1">
+          <mxGeometry height="40" width="90" x="750" y="550" as="geometry" />
+        </mxCell>
+        <mxCell id="a_pos_val" parent="1" style="ellipse;whiteSpace=wrap;html=1;align=center;" value="Data Validade" vertex="1">
+          <mxGeometry height="40" width="90" x="750" y="600" as="geometry" />
+        </mxCell>
+        <mxCell id="a_pos_sta" parent="1" style="ellipse;whiteSpace=wrap;html=1;align=center;" value="Status" vertex="1">
+          <mxGeometry height="40" width="90" x="750" y="650" as="geometry" />
+        </mxCell>
+        <mxCell id="a_cur_id" parent="1" style="ellipse;whiteSpace=wrap;html=1;align=center;fontStyle=4;" value="ID Curso" vertex="1">
+          <mxGeometry height="40" width="90" x="1250" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="a_cur_tit" parent="1" style="ellipse;whiteSpace=wrap;html=1;align=center;" value="Título" vertex="1">
+          <mxGeometry height="40" width="90" x="1250" y="350" as="geometry" />
+        </mxCell>
+        <mxCell id="a_cur_des" parent="1" style="ellipse;whiteSpace=wrap;html=1;align=center;" value="Descrição" vertex="1">
+          <mxGeometry height="40" width="90" x="1250" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="a_cur_val" parent="1" style="ellipse;whiteSpace=wrap;html=1;align=center;" value="Valor" vertex="1">
+          <mxGeometry height="40" width="90" x="1250" y="450" as="geometry" />
+        </mxCell>
+        <mxCell id="a_vin_dat" parent="1" style="ellipse;whiteSpace=wrap;html=1;align=center;" value="Data Vínculo" vertex="1">
+          <mxGeometry height="40" width="90" x="850" y="600" as="geometry" />
+        </mxCell>
+        <mxCell id="a_vin_sta" parent="1" style="ellipse;whiteSpace=wrap;html=1;align=center;" value="Status" vertex="1">
+          <mxGeometry height="40" width="90" x="950" y="600" as="geometry" />
+        </mxCell>
+        <mxCell id="a_vin_pro" parent="1" style="ellipse;whiteSpace=wrap;html=1;align=center;" value="Progresso" vertex="1">
+          <mxGeometry height="40" width="90" x="990" y="550" as="geometry" />
+        </mxCell>
+        <mxCell id="a_vin_med" parent="1" style="ellipse;whiteSpace=wrap;html=1;align=center;" value="Média Total" vertex="1">
+          <mxGeometry height="40" width="90" x="1010" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="a_ava_id" parent="1" style="ellipse;whiteSpace=wrap;html=1;align=center;fontStyle=4;" value="ID Avaliação" vertex="1">
+          <mxGeometry height="40" width="90" x="850" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="a_ava_not" parent="1" style="ellipse;whiteSpace=wrap;html=1;align=center;" value="Nota" vertex="1">
+          <mxGeometry height="40" width="90" x="950" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="a_ava_com" parent="1" style="ellipse;whiteSpace=wrap;html=1;align=center;" value="Comentário" vertex="1">
+          <mxGeometry height="40" width="90" x="1050" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="a_ava_dat" parent="1" style="ellipse;whiteSpace=wrap;html=1;align=center;" value="Data" vertex="1">
+          <mxGeometry height="40" width="90" x="750" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="a_mod_num" parent="1" style="ellipse;whiteSpace=wrap;html=1;align=center;dashed=1;" value="Número" vertex="1">
+          <mxGeometry height="40" width="90" x="1250" y="550" as="geometry" />
+        </mxCell>
+        <mxCell id="a_mod_des" parent="1" style="ellipse;whiteSpace=wrap;html=1;align=center;" value="Descrição" vertex="1">
+          <mxGeometry height="40" width="90" x="1250" y="600" as="geometry" />
+        </mxCell>
+        <mxCell id="a_aul_num" parent="1" style="ellipse;whiteSpace=wrap;html=1;align=center;dashed=1;" value="Número" vertex="1">
+          <mxGeometry height="40" width="90" x="1250" y="750" as="geometry" />
+        </mxCell>
+        <mxCell id="a_aul_nom" parent="1" style="ellipse;whiteSpace=wrap;html=1;align=center;" value="Nome" vertex="1">
+          <mxGeometry height="40" width="90" x="1250" y="800" as="geometry" />
+        </mxCell>
+        <mxCell id="a_aul_arq" parent="1" style="ellipse;whiteSpace=wrap;html=1;align=center;" value="Arquivo" vertex="1">
+          <mxGeometry height="40" width="90" x="1250" y="850" as="geometry" />
+        </mxCell>
+        <mxCell id="a_aul_dur" parent="1" style="ellipse;whiteSpace=wrap;html=1;align=center;" value="Duração" vertex="1">
+          <mxGeometry height="40" width="90" x="1250" y="900" as="geometry" />
+        </mxCell>
+        <mxCell id="l_usu_cpf" edge="1" parent="1" source="e_usu" style="endArrow=none;html=1;rounded=0;" target="a_usu_cpf">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l_usu_nom" edge="1" parent="1" source="e_usu" style="endArrow=none;html=1;rounded=0;" target="a_usu_nom">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l_usu_tip" edge="1" parent="1" source="e_usu" style="endArrow=none;html=1;rounded=0;" target="a_usu_tip">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l_usu_dat" edge="1" parent="1" source="e_usu" style="endArrow=none;html=1;rounded=0;" target="a_usu_dat">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l_usu_ema" edge="1" parent="1" source="e_usu" style="endArrow=none;html=1;rounded=0;" target="a_usu_ema">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l_usu_tel" edge="1" parent="1" source="e_usu" style="endArrow=none;html=1;rounded=0;" target="a_usu_tel">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l_usu_loc" edge="1" parent="1" source="e_usu" style="endArrow=none;html=1;rounded=0;" target="a_usu_loc">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l_loc_pai" edge="1" parent="1" source="a_usu_loc" style="endArrow=none;html=1;rounded=0;" target="a_usu_pai">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l_loc_est" edge="1" parent="1" source="a_usu_loc" style="endArrow=none;html=1;rounded=0;" target="a_usu_est">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l_loc_cid" edge="1" parent="1" source="a_usu_loc" style="endArrow=none;html=1;rounded=0;" target="a_usu_cid">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l_ind_1" edge="1" parent="1" source="e_usu" style="endArrow=none;html=1;rounded=0;exitX=1;exitY=0.25;entryX=0;entryY=0.5;" target="r_ind" value="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l_ind_2" edge="1" parent="1" source="e_usu" style="endArrow=none;html=1;rounded=0;exitX=1;exitY=0.75;entryX=0.5;entryY=1;" target="r_ind" value="N">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l_isa_usu" edge="1" parent="1" source="e_usu" style="endArrow=none;html=1;rounded=0;" target="r_isa">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l_isa_ins" edge="1" parent="1" source="r_isa" style="endArrow=none;html=1;rounded=0;exitX=0.058;exitY=0.037;exitDx=0;exitDy=0;exitPerimeter=0;" target="e_ins">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l_isa_alu" edge="1" parent="1" source="r_isa" style="endArrow=none;html=1;rounded=0;" target="e_alu">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l_ins_bio" edge="1" parent="1" source="e_ins" style="endArrow=none;html=1;rounded=0;" target="a_ins_bio">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l_ins_esp" edge="1" parent="1" source="e_ins" style="endArrow=none;html=1;rounded=0;" target="a_ins_esp">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l_alu_cur" edge="1" parent="1" source="e_alu" style="endArrow=none;html=1;rounded=0;" target="a_alu_cur">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l_alu_tem" edge="1" parent="1" source="e_alu" style="endArrow=none;html=1;rounded=0;" target="a_alu_tem">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l_pos_alu" edge="1" parent="1" source="e_alu" style="endArrow=none;html=1;rounded=0;" target="r_pos" value="N">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l_pos_pla" edge="1" parent="1" source="r_pos" style="endArrow=none;html=1;rounded=0;" target="e_pla" value="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l_pos_ini" edge="1" parent="1" source="r_pos" style="endArrow=none;html=1;rounded=0;" target="a_pos_ini">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l_pos_val" edge="1" parent="1" source="r_pos" style="endArrow=none;html=1;rounded=0;" target="a_pos_val">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l_pos_sta" edge="1" parent="1" source="r_pos" style="endArrow=none;html=1;rounded=0;" target="a_pos_sta">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l_pla_id" edge="1" parent="1" source="e_pla" style="endArrow=none;html=1;rounded=0;" target="a_pla_id">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l_pla_tip" edge="1" parent="1" source="e_pla" style="endArrow=none;html=1;rounded=0;" target="a_pla_tip">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l_pla_dat" edge="1" parent="1" source="e_pla" style="endArrow=none;html=1;rounded=0;" target="a_pla_dat">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l_pla_lim" edge="1" parent="1" source="e_pla" style="endArrow=none;html=1;rounded=0;" target="a_pla_lim">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l_pla_ace" edge="1" parent="1" source="e_pla" style="endArrow=none;html=1;rounded=0;" target="a_pla_ace">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l_cur_id" edge="1" parent="1" source="e_cur" style="endArrow=none;html=1;rounded=0;" target="a_cur_id">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l_cur_tit" edge="1" parent="1" source="e_cur" style="endArrow=none;html=1;rounded=0;" target="a_cur_tit">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l_cur_des" edge="1" parent="1" source="e_cur" style="endArrow=none;html=1;rounded=0;" target="a_cur_des">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l_cur_val" edge="1" parent="1" source="e_cur" style="endArrow=none;html=1;rounded=0;" target="a_cur_val">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l_vin_alu" edge="1" parent="1" source="e_alu" style="endArrow=none;html=1;rounded=0;" target="r_vin" value="N">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l_vin_cur" edge="1" parent="1" source="e_cur" style="endArrow=none;html=1;rounded=0;" target="r_vin" value="N">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l_vin_ins" edge="1" parent="1" source="e_ins" style="endArrow=none;html=1;rounded=0;" target="r_vin" value="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l_vin_dat" edge="1" parent="1" source="r_vin" style="endArrow=none;html=1;rounded=0;" target="a_vin_dat">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l_vin_sta" edge="1" parent="1" source="r_vin" style="endArrow=none;html=1;rounded=0;" target="a_vin_sta">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l_vin_pro" edge="1" parent="1" source="r_vin" style="endArrow=none;html=1;rounded=0;" target="a_vin_pro">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l_vin_med" edge="1" parent="1" source="r_vin" style="endArrow=none;html=1;rounded=0;" target="a_vin_med">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l_ava_alu" edge="1" parent="1" source="e_alu" style="endArrow=none;html=1;rounded=0;" target="e_ava" value="N">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l_ava_cur" edge="1" parent="1" source="e_cur" style="endArrow=none;html=1;rounded=0;" target="e_ava" value="N">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l_ava_id" edge="1" parent="1" source="e_ava" style="endArrow=none;html=1;rounded=0;" target="a_ava_id">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l_ava_not" edge="1" parent="1" source="e_ava" style="endArrow=none;html=1;rounded=0;" target="a_ava_not">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l_ava_com" edge="1" parent="1" source="e_ava" style="endArrow=none;html=1;rounded=0;" target="a_ava_com">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l_ava_dat" edge="1" parent="1" source="e_ava" style="endArrow=none;html=1;rounded=0;" target="a_ava_dat">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l_cmo_cur" edge="1" parent="1" source="e_cur" style="endArrow=none;html=1;rounded=0;" target="r_cmo" value="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l_cmo_mod" edge="1" parent="1" source="r_cmo" style="endArrow=none;html=1;rounded=0;" target="e_mod" value="N">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l_mod_num" edge="1" parent="1" source="e_mod" style="endArrow=none;html=1;rounded=0;" target="a_mod_num">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l_mod_des" edge="1" parent="1" source="e_mod" style="endArrow=none;html=1;rounded=0;" target="a_mod_des">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l_cau_mod" edge="1" parent="1" source="e_mod" style="endArrow=none;html=1;rounded=0;" target="r_cau" value="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l_cau_aul" edge="1" parent="1" source="r_cau" style="endArrow=none;html=1;rounded=0;" target="e_aul" value="N">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l_aul_num" edge="1" parent="1" source="e_aul" style="endArrow=none;html=1;rounded=0;" target="a_aul_num">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l_aul_nom" edge="1" parent="1" source="e_aul" style="endArrow=none;html=1;rounded=0;" target="a_aul_nom">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l_aul_arq" edge="1" parent="1" source="e_aul" style="endArrow=none;html=1;rounded=0;" target="a_aul_arq">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l_aul_dur" edge="1" parent="1" source="e_aul" style="endArrow=none;html=1;rounded=0;" target="a_aul_dur">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="r_ind" parent="1" style="rhombus;whiteSpace=wrap;html=1;" value="Indicação" vertex="1">
+          <mxGeometry height="60" width="100" x="530" y="190" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
