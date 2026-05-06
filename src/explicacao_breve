@@ -1,0 +1,72 @@
+Este projeto consiste na implementação de um banco de dados relacional para uma plataforma de cursos digitais utilizando Oracle SQL.
+
+O sistema foi desenvolvido com base em um esquema relacional normalizado, contendo entidades relacionadas ao funcionamento da plataforma, como:
+
+usuários
+alunos
+instrutores
+cursos
+módulos
+aulas
+matrículas
+avaliações
+assinaturas
+planos
+
+------------------------------------------------------
+
+01_drop.sql
+
+Responsável por remover as tabelas existentes do banco de dados, evitando conflitos durante novas execuções dos scripts.
+
+-------------------------------------------------------
+
+02_create_tables.sql
+
+Cria todas as tabelas do sistema utilizando:
+
+CREATE TABLE
+PRIMARY KEY
+FOREIGN KEY
+CHECK
+
+Também implementa as restrições de integridade referencial entre as entidades.
+
+----------------------------------------------------------
+03_sequences.sql
+
+Cria as sequences utilizadas para geração automática de identificadores numéricos das tabelas.
+
+Exemplo:
+
+ID_Curso
+ID_Aula
+ID_Matricula
+
+---------------------------------------------------------
+04_inserts.sql
+
+Realiza o povoamento do banco de dados com dados coerentes e relacionados entre si.
+
+Foram inseridos:
+
+usuários
+cursos
+matrículas
+avaliações
+planos
+módulos
+aulas
+
+O povoamento foi desenvolvido de forma intermediária, evitando tanto excesso quanto simplicidade excessiva.
+
+------------------------------------------------------------------
+05_selects.sql
+
+Contém consultas SQL utilizadas para testar o funcionamento do banco de dados e verificar os relacionamentos entre as tabelas.
+
+As consultas demonstram:
+
+recuperação de dados
+relacionamentos com JOIN
+integridade dos registros inseridos
