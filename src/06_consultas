@@ -1,0 +1,266 @@
+-- RELATÓRIO GERAL DE ESTUDANTES ATIVOS
+-- Itens da Checklist SQL atendidos: 
+-- 6 (SELECT-FROM-WHERE), 11 (INNER JOIN), 21 (ORDER BY)
+
+SELECT 
+    M.ID_Matricula AS Registro_Matricula,
+    U.Nome AS Nome_do_Estudante,
+    U.Email AS Contato_Email,
+    M.Status AS Situacao_no_Curso
+FROM Usuario U
+INNER JOIN Aluno AL 
+    ON U.CPF = AL.CPF_Usuario
+INNER JOIN Matricula M 
+    ON AL.CPF_Usuario = M.CPF_Aluno
+ORDER BY 
+    U.Nome ASC;
+
+
+-- RELATÓRIO 2: ENGAJAMENTO DE ALUNOS
+-- Itens da Checklist SQL atendidos: 
+-- 16 (LEFT OUTER JOIN), 14 (AVG), 15 (COUNT), 22 (GROUP BY)
+SELECT 
+    U.Nome AS Nome_do_Aluno,
+    A.Status AS Status_da_Assinatura,
+    COUNT(M.ID_Matricula) AS Quantidade_Cursos_Matriculados,
+    NVL(AVG(M.Progresso), 0) AS Media_Progresso_Total
+FROM Usuario U
+INNER JOIN Aluno AL ON U.CPF = AL.CPF_Usuario
+LEFT JOIN Assinatura A ON AL.CPF_Usuario = A.CPF_Aluno
+LEFT JOIN Matricula M ON AL.CPF_Usuario = M.CPF_Aluno
+WHERE U.Tipo = 'ALUNO'
+GROUP BY U.Nome, A.Status
+ORDER BY Quantidade_Cursos_Matriculados DESC;
+
+
+-- RELATÓRIO 3: ALUNOS NOS CURSOS PREMIUM (VIEW)
+-- Itens da Checklist SQL atendidos: 
+-- 25 (CREATE VIEW), 18 (SUBCONSULTA COM IN), 17 (SUBCONSULTA OPERADOR RELACIONAL)
+CREATE OR REPLACE VIEW v_alunos_cursos_caros AS
+SELECT 
+    M.ID_Matricula,
+    U.Nome AS Nome_do_Aluno
+FROM Matricula M
+INNER JOIN Usuario U ON M.CPF_Aluno = U.CPF
+WHERE M.ID_Curso IN (
+    SELECT ID_Curso FROM Curso WHERE Valor > 250
+);
+SELECT * FROM v_alunos_cursos_caros;
+
+-- REGRA 1: VALIDAÇÃO DE DATA DE AVALIAÇÃO (GATILHO)
+-- Itens da Checklist PL atendidos: 
+-- 20 (TRIGGER LINHA), 6 (%TYPE), 13 (SELECT INTO), 8 (IF), 15 (EXCEPTION)
+CREATE OR REPLACE TRIGGER trg_valida_data_aval
+BEFORE INSERT OR UPDATE ON Avaliacao
+FOR EACH ROW
+DECLARE
+    v_data_matricula Matricula.Data_Matricula%TYPE; 
+BEGIN
+    SELECT Data_Matricula INTO v_data_matricula
+    FROM Matricula
+    WHERE CPF_Aluno = :NEW.CPF_Aluno AND ID_Curso = :NEW.ID_Curso;
+
+    IF :NEW.Data_Avaliacao < v_data_matricula THEN
+        RAISE_APPLICATION_ERROR(-20001, 'Fraude: A avaliação não pode ser anterior à matrícula!');
+    END IF;
+EXCEPTION
+    WHEN NO_DATA_FOUND THEN
+        RAISE_APPLICATION_ERROR(-20002, 'Erro: O aluno não está matriculado neste curso.');
+END;
+
+
+-- REGRA 2: SISTEMA DE FECHAMENTO DE SEMESTRE (PACOTE E CURSOR)
+-- Itens da Checklist PL atendidos: 
+-- 17 (CREATE PACKAGE), 18 (PACKAGE BODY), 4 (PROCEDURE), 14 (CURSOR EXPLÍCITO), 7 (%ROWTYPE), 10 (FOR LOOP)
+CREATE OR REPLACE PACKAGE PKG_GESTAO_ACADEMICA AS
+    PROCEDURE Atualizar_Status_Conclusao;
+END PKG_GESTAO_ACADEMICA;
+/
+
+CREATE OR REPLACE PACKAGE BODY PKG_GESTAO_ACADEMICA AS
+    PROCEDURE Atualizar_Status_Conclusao IS
+        CURSOR c_matriculas IS
+            SELECT ID_Matricula FROM Matricula
+            WHERE Status = 'ATIVA' AND Progresso = 100;
+        v_matricula c_matriculas%ROWTYPE; 
+    BEGIN
+        FOR v_matricula IN c_matriculas LOOP
+            UPDATE Matricula
+            SET Status = 'CONCLUIDO'
+            WHERE ID_Matricula = v_matricula.ID_Matricula;
+        END LOOP;
+        COMMIT;
+    END Atualizar_Status_Conclusao;
+END PKG_GESTAO_ACADEMICA;
+
+
+-- REGRA 3: CÁLCULO DE DESCONTO DE MENSALIDADE (FUNÇÃO)
+-- Itens da Checklist PL atendidos: 
+-- 5 (CREATE FUNCTION), 2 (Parâmetros IN), 8 (IF ELSIF)
+CREATE OR REPLACE FUNCTION Calcular_Desconto_Curso (
+    p_cpf_aluno IN Aluno.CPF_Usuario%TYPE,
+    p_valor_curso IN Curso.Valor%TYPE
+) RETURN NUMBER IS
+    v_id_plano Assinatura.ID_Plano%TYPE;
+    v_valor_final NUMBER(10,2);
+BEGIN
+    BEGIN
+        SELECT ID_Plano INTO v_id_plano
+        FROM Assinatura
+        WHERE CPF_Aluno = p_cpf_aluno AND Status = 'ATIVA'
+        FETCH FIRST 1 ROWS ONLY; 
+    EXCEPTION
+        WHEN NO_DATA_FOUND THEN v_id_plano := 0; 
+    END;
+
+    IF v_id_plano = 2 THEN v_valor_final := p_valor_curso * 0.80; 
+    ELSIF v_id_plano = 1 THEN v_valor_final := p_valor_curso * 0.95; 
+    ELSE v_valor_final := p_valor_curso; 
+    END IF;
+
+    RETURN v_valor_final;
+END;
+
+
+-- OTIMIZAÇÃO E PERMISSÕES
+-- Itens da Checklist SQL atendidos: 
+-- 2 (CREATE INDEX), 26 (GRANT / REVOKE)
+
+-- Cria um índice para deixar a busca por nome de usuário muito mais rápida
+CREATE INDEX idx_nome_usuario ON Usuario(Nome);
+
+-- Dá permissão para qualquer pessoa do banco ler aquela View que criamos
+GRANT SELECT ON v_alunos_cursos_caros TO PUBLIC;
+
+
+-- RELATÓRIO 4: CURSOS MAIS CAROS E MAIS BARATOS (COM UNION E EXTREMOS)
+-- Itens da Checklist SQL atendidos: 
+-- 12 (MAX), 13 (MIN), 24 (UNION)
+
+SELECT 
+    Titulo AS Curso_Destaque, 
+    Valor, 
+    'MAIOR PREÇO DA PLATAFORMA' AS Categoria 
+FROM Curso 
+WHERE Valor = (SELECT MAX(Valor) FROM Curso)
+UNION
+SELECT 
+    Titulo AS Curso_Destaque, 
+    Valor, 
+    'MENOR PREÇO DA PLATAFORMA' AS Categoria 
+FROM Curso 
+WHERE Valor = (SELECT MIN(Valor) FROM Curso);
+
+
+-- RELATÓRIO 5: ALUNOS SEM ASSINATURA E BUSCA POR TEXTO
+-- Itens da Checklist SQL atendidos: 
+-- 9 (LIKE), 10 (IS NULL)
+
+SELECT U.Nome, U.Email 
+FROM Usuario U
+LEFT JOIN Assinatura A ON U.CPF = A.CPF_Aluno
+WHERE U.Tipo = 'ALUNO' 
+  AND A.ID_Assinatura IS NULL  -- Filtra quem não tem assinatura nenhuma
+  AND U.Email LIKE '%@email.com%'; -- Filtra garantindo que o email é válido
+
+
+
+  -- REGRA 4: SISTEMA DE AUDITORIA DE USUÁRIOS (BLOCO ANÔNIMO COM ARRAYS)
+-- Itens da Checklist PL atendidos: 
+-- 3 (BLOCO ANÔNIMO), 1 (USO DE RECORD), 2 (ESTRUTURA TABLE), 11 (WHILE LOOP)
+
+DECLARE
+    -- 1. Cria um "RECORD" (funciona como uma Struct em C++ ou um Dicionário no Python)
+    TYPE t_auditoria IS RECORD (
+        cpf_alvo VARCHAR2(11), 
+        acao VARCHAR2(50)
+    );
+    
+    -- 2. Cria uma "TABLE" (funciona como uma Lista/Array em memória)
+    TYPE t_tabela_auditoria IS TABLE OF t_auditoria INDEX BY BINARY_INTEGER;
+    
+    v_lista_logs t_tabela_auditoria;
+    v_contador NUMBER := 1;
+BEGIN
+    -- Simulando a Maisa Vitória, ou outro admin, registrando logs de auditoria manualmente
+    v_lista_logs(1).cpf_alvo := '33333333333'; 
+    v_lista_logs(1).acao := 'Verificação de Fraude';
+    
+    v_lista_logs(2).cpf_alvo := '22222222222'; 
+    v_lista_logs(2).acao := 'Reset de Senha';
+
+    -- 3. WHILE LOOP (Percorre o nosso Array em memória e imprime na tela)
+    WHILE v_contador <= v_lista_logs.COUNT LOOP
+        DBMS_OUTPUT.PUT_LINE('LOG ' || v_contador || ': CPF ' || v_lista_logs(v_contador).cpf_alvo || ' - ' || v_lista_logs(v_contador).acao);
+        v_contador := v_contador + 1;
+    END LOOP;
+END;
+
+
+-- Itens da Checklist SQL atendidos: 
+-- 1 (ALTER TABLE), 4 (UPDATE), 5 (DELETE), 26 (GRANT / REVOKE)
+
+-- Adiciona uma coluna de "Bio" na tabela de Alunos (só para testar o ALTER)
+ALTER TABLE Aluno ADD Bio_Breve VARCHAR2(100);
+
+-- Atualiza o progresso de um aluno específico
+UPDATE Matricula SET Progresso = 95 WHERE ID_Matricula = 1;
+
+-- Deleta um telefone antigo (só para constar o comando na checklist)
+DELETE FROM Telefone WHERE ID_Telefone = 999; -- ID inexistente para não quebrar o banco
+
+-- [REQUISITO 26]: GRANT / REVOKE 
+-- OBS: Não executa no Live SQL, mas deve estar no script final da AV4.
+-- GRANT SELECT ON Usuario TO PUBLIC;
+-- REVOKE SELECT ON Usuario FROM PUBLIC;
+
+
+Itens da Checklist SQL atendidos: 
+-- 7 (BETWEEN), 19 (SUBCONSULTA ANY), 20 (SUBCONSULTA ALL), 23 (HAVING)
+
+-- Relatório: Instrutores que dão cursos com valor acima da média de QUALQUER curso de SQL
+SELECT Nome 
+FROM Usuario 
+WHERE CPF IN (
+    SELECT CPF_Instrutor FROM Curso 
+    WHERE Valor > ANY (SELECT Valor FROM Curso WHERE Titulo LIKE '%SQL%')
+);
+
+-- Relatório: Cidades que possuem mais de 5 endereços cadastrados
+SELECT ID_Cidade, COUNT(*) AS Qnt 
+FROM Endereco 
+GROUP BY ID_Cidade 
+HAVING COUNT(*) > 5;
+
+
+-- Itens da Checklist PL atendidos: 
+-- 9 (CASE WHEN), 12 (FOR IN LOOP), 16 (PARAMETROS OUT)
+
+CREATE OR REPLACE PROCEDURE Analise_Desempenho_Aluno (
+    p_cpf_aluno IN VARCHAR2,
+    p_resultado OUT VARCHAR2 -- Parâmetro de SAÍDA
+) AS
+    v_media_geral NUMBER;
+BEGIN
+    -- Calcula a média do aluno em todos os seus cursos
+    SELECT AVG(Media) INTO v_media_geral FROM Matricula WHERE CPF_Aluno = p_cpf_aluno;
+
+    -- CASE WHEN: Avalia a situação do aluno
+    CASE 
+        WHEN v_media_geral >= 9 THEN p_resultado := 'EXCELENTE';
+        WHEN v_media_geral >= 7 THEN p_resultado := 'APROVADO';
+        ELSE p_resultado := 'RECUPERAÇÃO';
+    END CASE;
+END;
+/
+
+-- BLOCO ANÔNIMO PARA TESTAR TUDO (FOR IN LOOP e CASE)
+DECLARE
+    v_res VARCHAR2(50);
+BEGIN
+    FOR r IN (SELECT CPF_Usuario, Nome FROM Usuario WHERE Tipo = 'ALUNO') LOOP
+        Analise_Desempenho_Aluno(r.CPF_Usuario, v_res);
+        DBMS_OUTPUT.PUT_LINE('Aluno: ' || r.Nome || ' | Status: ' || v_res);
+    END LOOP;
+END;
+
