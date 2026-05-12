@@ -233,9 +233,7 @@ GROUP BY ID_Cidade
 HAVING COUNT(*) > 5;
 
 
--- BLOCO ANÔNIMO CORRIGIDO (FOR IN LOOP e CASE)
 -- Itens da Checklist PL atendidos: 12 (FOR IN LOOP), 3 (BLOCO ANÔNIMO)
-
 SET SERVEROUTPUT ON;
 DECLARE
     v_res VARCHAR2(50);
@@ -246,4 +244,3 @@ BEGIN
         DBMS_OUTPUT.PUT_LINE('Aluno: ' || r.Nome || ' | Status: ' || v_res);
     END LOOP;
 END;
-Agradecemos por utilizar nossos serviços! Esperamos trabalhar com você novamente em breve.
