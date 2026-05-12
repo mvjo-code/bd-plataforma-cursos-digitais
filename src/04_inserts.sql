@@ -1,332 +1,112 @@
 --------------------------------------------------
+-- 04_INSERTS.SQL (Povoamento Completo)
+--------------------------------------------------
+
 -- CIDADES
---------------------------------------------------
+INSERT INTO Cidade VALUES (SEQ_CIDADE.NEXTVAL, 'Recife', 'Pernambuco', 'Brasil');
+INSERT INTO Cidade VALUES (SEQ_CIDADE.NEXTVAL, 'São Paulo', 'São Paulo', 'Brasil');
+INSERT INTO Cidade VALUES (SEQ_CIDADE.NEXTVAL, 'Rio de Janeiro', 'Rio de Janeiro', 'Brasil');
 
-INSERT INTO Cidade VALUES (
-SEQ_CIDADE.NEXTVAL,
-'Recife',
-'Pernambuco',
-'Brasil'
-);
+-- USUÁRIOS (Instrutores e Alunos Originais)
+INSERT INTO Usuario VALUES ('11111111111', 'Carlos Henrique', 'carlos@email.com', TO_DATE('1990-03-15', 'YYYY-MM-DD'), 'INSTRUTOR', NULL);
+INSERT INTO Usuario VALUES ('22222222222', 'Ana Beatriz', 'ana@email.com', TO_DATE('1998-07-20', 'YYYY-MM-DD'), 'ALUNO', '11111111111');
+INSERT INTO Usuario VALUES ('33333333333', 'Lucas Almeida', 'lucas@email.com', TO_DATE('2001-05-10', 'YYYY-MM-DD'), 'ALUNO', '11111111111');
+INSERT INTO Usuario VALUES ('44444444444', 'Fernanda Lima', 'fernanda@email.com', TO_DATE('1995-11-02', 'YYYY-MM-DD'), 'INSTRUTOR', NULL);
 
-INSERT INTO Cidade VALUES (
-SEQ_CIDADE.NEXTVAL,
-'São Paulo',
-'São Paulo',
-'Brasil'
-);
+-- USUÁRIOS EXTRAS (+2 Instrutores e +10 Alunos)
+INSERT INTO Usuario VALUES ('55555555555', 'Mariana Costa', 'mariana@email.com', TO_DATE('1988-04-12', 'YYYY-MM-DD'), 'INSTRUTOR', NULL);
+INSERT INTO Usuario VALUES ('66666666666', 'Roberto Silva', 'roberto@email.com', TO_DATE('1992-09-30', 'YYYY-MM-DD'), 'INSTRUTOR', NULL);
+INSERT INTO Usuario VALUES ('77777777777', 'Pedro Mendes', 'pedro@email.com', TO_DATE('2000-01-15', 'YYYY-MM-DD'), 'ALUNO', '22222222222');
+INSERT INTO Usuario VALUES ('88888888888', 'Juliana Rocha', 'juliana@email.com', TO_DATE('1999-05-22', 'YYYY-MM-DD'), 'ALUNO', NULL);
+INSERT INTO Usuario VALUES ('99999999999', 'Marcos Dias', 'marcos@email.com', TO_DATE('2002-11-10', 'YYYY-MM-DD'), 'ALUNO', '33333333333');
+INSERT INTO Usuario VALUES ('10101010101', 'Camila Nunes', 'camila@email.com', TO_DATE('1997-08-05', 'YYYY-MM-DD'), 'ALUNO', NULL);
+INSERT INTO Usuario VALUES ('20202020202', 'Thiago Lopes', 'thiago@email.com', TO_DATE('1996-12-18', 'YYYY-MM-DD'), 'ALUNO', NULL);
+INSERT INTO Usuario VALUES ('30303030303', 'Vanessa Alves', 'vanessa@email.com', TO_DATE('2003-02-28', 'YYYY-MM-DD'), 'ALUNO', '77777777777');
+INSERT INTO Usuario VALUES ('40404040404', 'Rafael Ortiz', 'rafael@email.com', TO_DATE('1994-07-07', 'YYYY-MM-DD'), 'ALUNO', NULL);
+INSERT INTO Usuario VALUES ('50505050505', 'Letícia Moraes', 'leticia@email.com', TO_DATE('2001-04-14', 'YYYY-MM-DD'), 'ALUNO', NULL);
+INSERT INTO Usuario VALUES ('60606060606', 'Felipe Santos', 'felipe@email.com', TO_DATE('1998-09-09', 'YYYY-MM-DD'), 'ALUNO', '88888888888');
+INSERT INTO Usuario VALUES ('70707070707', 'Beatriz Castro', 'beatriz@email.com', TO_DATE('2004-10-31', 'YYYY-MM-DD'), 'ALUNO', NULL);
 
-INSERT INTO Cidade VALUES (
-SEQ_CIDADE.NEXTVAL,
-'Rio de Janeiro',
-'Rio de Janeiro',
-'Brasil'
-);
-
---------------------------------------------------
--- USUARIOS
---------------------------------------------------
-
-INSERT INTO Usuario VALUES (
-'11111111111',
-'Carlos Henrique',
-'carlos@email.com',
-TO_DATE('1990-03-15', 'YYYY-MM-DD'),
-'INSTRUTOR',
-NULL
-);
-
-INSERT INTO Usuario VALUES (
-'22222222222',
-'Ana Beatriz',
-'ana@email.com',
-TO_DATE('1998-07-20', 'YYYY-MM-DD'),
-'ALUNO',
-'11111111111'
-);
-
-INSERT INTO Usuario VALUES (
-'33333333333',
-'Lucas Almeida',
-'lucas@email.com',
-TO_DATE('2001-05-10', 'YYYY-MM-DD'),
-'ALUNO',
-'11111111111'
-);
-
-INSERT INTO Usuario VALUES (
-'44444444444',
-'Fernanda Lima',
-'fernanda@email.com',
-TO_DATE('1995-11-02', 'YYYY-MM-DD'),
-'INSTRUTOR',
-NULL
-);
-
---------------------------------------------------
 -- TELEFONES
---------------------------------------------------
+INSERT INTO Telefone VALUES (SEQ_TELEFONE.NEXTVAL, '11111111111', '81999998888');
+INSERT INTO Telefone VALUES (SEQ_TELEFONE.NEXTVAL, '22222222222', '81988887777');
+INSERT INTO Telefone VALUES (SEQ_TELEFONE.NEXTVAL, '33333333333', '21977776666');
+INSERT INTO Telefone VALUES (SEQ_TELEFONE.NEXTVAL, '44444444444', '11966665555');
 
-INSERT INTO Telefone VALUES (
-SEQ_TELEFONE.NEXTVAL,
-'11111111111',
-'81999998888'
-);
-
-INSERT INTO Telefone VALUES (
-SEQ_TELEFONE.NEXTVAL,
-'22222222222',
-'81988887777'
-);
-
-INSERT INTO Telefone VALUES (
-SEQ_TELEFONE.NEXTVAL,
-'33333333333',
-'21977776666'
-);
-
-INSERT INTO Telefone VALUES (
-SEQ_TELEFONE.NEXTVAL,
-'44444444444',
-'11966665555'
-);
-
---------------------------------------------------
 -- ENDERECOS
---------------------------------------------------
+INSERT INTO Endereco VALUES (SEQ_ENDERECO.NEXTVAL, '11111111111', 1);
+INSERT INTO Endereco VALUES (SEQ_ENDERECO.NEXTVAL, '22222222222', 1);
+INSERT INTO Endereco VALUES (SEQ_ENDERECO.NEXTVAL, '33333333333', 3);
+INSERT INTO Endereco VALUES (SEQ_ENDERECO.NEXTVAL, '44444444444', 2);
 
-INSERT INTO Endereco VALUES (
-SEQ_ENDERECO.NEXTVAL,
-'11111111111',
-1
-);
-
-INSERT INTO Endereco VALUES (
-SEQ_ENDERECO.NEXTVAL,
-'22222222222',
-1
-);
-
-INSERT INTO Endereco VALUES (
-SEQ_ENDERECO.NEXTVAL,
-'33333333333',
-3
-);
-
-INSERT INTO Endereco VALUES (
-SEQ_ENDERECO.NEXTVAL,
-'44444444444',
-2
-);
-
---------------------------------------------------
 -- INSTRUTORES
---------------------------------------------------
+INSERT INTO Instrutor VALUES ('11111111111', 'Especialista em Banco de Dados', 'Banco de Dados');
+INSERT INTO Instrutor VALUES ('44444444444', 'Especialista em Desenvolvimento Web', 'Desenvolvimento Web');
+INSERT INTO Instrutor VALUES ('55555555555', 'Designer Sênior com 10 anos de XP', 'UI/UX Design');
+INSERT INTO Instrutor VALUES ('66666666666', 'Growth Hacker e Especialista em Vendas', 'Marketing Digital');
 
-INSERT INTO Instrutor VALUES (
-'11111111111',
-'Especialista em Banco de Dados',
-'Banco de Dados'
-);
-
-INSERT INTO Instrutor VALUES (
-'44444444444',
-'Especialista em Desenvolvimento Web',
-'Desenvolvimento Web'
-);
-
---------------------------------------------------
 -- ALUNOS
---------------------------------------------------
-
 INSERT INTO Aluno VALUES ('22222222222');
-
 INSERT INTO Aluno VALUES ('33333333333');
+INSERT INTO Aluno VALUES ('77777777777');
+INSERT INTO Aluno VALUES ('88888888888');
+INSERT INTO Aluno VALUES ('99999999999');
+INSERT INTO Aluno VALUES ('10101010101');
+INSERT INTO Aluno VALUES ('20202020202');
+INSERT INTO Aluno VALUES ('30303030303');
+INSERT INTO Aluno VALUES ('40404040404');
+INSERT INTO Aluno VALUES ('50505050505');
+INSERT INTO Aluno VALUES ('60606060606');
+INSERT INTO Aluno VALUES ('70707070707');
 
---------------------------------------------------
 -- PLANOS
---------------------------------------------------
+INSERT INTO Plano VALUES (SEQ_PLANO.NEXTVAL, 'BASICO', 3, 'N');
+INSERT INTO Plano VALUES (SEQ_PLANO.NEXTVAL, 'PREMIUM', 999, 'S');
 
-INSERT INTO Plano VALUES (
-SEQ_PLANO.NEXTVAL,
-'BASICO',
-3,
-'N'
-);
-
-INSERT INTO Plano VALUES (
-SEQ_PLANO.NEXTVAL,
-'PREMIUM',
-999,
-'S'
-);
-
---------------------------------------------------
 -- ASSINATURAS
---------------------------------------------------
+INSERT INTO Assinatura VALUES (SEQ_ASSINATURA.NEXTVAL, '22222222222', 1, SYSDATE, ADD_MONTHS(SYSDATE, 6), 'ATIVA');
+INSERT INTO Assinatura VALUES (SEQ_ASSINATURA.NEXTVAL, '33333333333', 2, SYSDATE, ADD_MONTHS(SYSDATE, 12), 'ATIVA');
 
-INSERT INTO Assinatura VALUES (
-SEQ_ASSINATURA.NEXTVAL,
-'22222222222',
-1,
-SYSDATE,
-ADD_MONTHS(SYSDATE, 6),
-'ATIVA'
-);
-
-INSERT INTO Assinatura VALUES (
-SEQ_ASSINATURA.NEXTVAL,
-'33333333333',
-2,
-SYSDATE,
-ADD_MONTHS(SYSDATE, 12),
-'ATIVA'
-);
-
---------------------------------------------------
 -- CURSOS
---------------------------------------------------
+INSERT INTO Curso VALUES (SEQ_CURSO.NEXTVAL, 'Oracle SQL Completo', 'Curso de Oracle SQL', 299.90, '11111111111');
+INSERT INTO Curso VALUES (SEQ_CURSO.NEXTVAL, 'React Moderno', 'Curso de React', 249.90, '44444444444');
+INSERT INTO Curso VALUES (SEQ_CURSO.NEXTVAL, 'Python para Dados', 'Curso de Python aplicado a dados', 349.90, '11111111111');
+INSERT INTO Curso VALUES (SEQ_CURSO.NEXTVAL, 'Figma para Iniciantes', 'Aprenda UI/UX do zero', 199.90, '55555555555');
+INSERT INTO Curso VALUES (SEQ_CURSO.NEXTVAL, 'SEO e Tráfego Pago', 'Destaque seus projetos no Google', 150.00, '66666666666');
 
-INSERT INTO Curso VALUES (
-SEQ_CURSO.NEXTVAL,
-'Oracle SQL Completo',
-'Curso de Oracle SQL',
-299.90,
-'11111111111'
-);
-
-INSERT INTO Curso VALUES (
-SEQ_CURSO.NEXTVAL,
-'React Moderno',
-'Curso de React',
-249.90,
-'44444444444'
-);
-
-INSERT INTO Curso VALUES (
-SEQ_CURSO.NEXTVAL,
-'Python para Dados',
-'Curso de Python aplicado a dados',
-349.90,
-'11111111111'
-);
-
---------------------------------------------------
 -- MODULOS
---------------------------------------------------
+INSERT INTO Modulo VALUES (SEQ_MODULO.NEXTVAL, 1, 1, 'Fundamentos SQL');
+INSERT INTO Modulo VALUES (SEQ_MODULO.NEXTVAL, 1, 2, 'JOINs e Consultas');
+INSERT INTO Modulo VALUES (SEQ_MODULO.NEXTVAL, 2, 1, 'Introducao ao React');
 
-INSERT INTO Modulo VALUES (
-SEQ_MODULO.NEXTVAL,
-1,
-1,
-'Fundamentos SQL'
-);
-
-INSERT INTO Modulo VALUES (
-SEQ_MODULO.NEXTVAL,
-1,
-2,
-'JOINs e Consultas'
-);
-
-INSERT INTO Modulo VALUES (
-SEQ_MODULO.NEXTVAL,
-2,
-1,
-'Introducao ao React'
-);
-
---------------------------------------------------
 -- AULAS
---------------------------------------------------
+INSERT INTO Aula VALUES (SEQ_AULA.NEXTVAL, 1, 'Introducao', 'introducao.mp4', 45);
+INSERT INTO Aula VALUES (SEQ_AULA.NEXTVAL, 1, 'Normalizacao', 'normalizacao.mp4', 50);
+INSERT INTO Aula VALUES (SEQ_AULA.NEXTVAL, 3, 'Componentes React', 'componentes.mp4', 55);
 
-INSERT INTO Aula VALUES (
-SEQ_AULA.NEXTVAL,
-1,
-'Introducao',
-'introducao.mp4',
-45
-);
-
-INSERT INTO Aula VALUES (
-SEQ_AULA.NEXTVAL,
-1,
-'Normalizacao',
-'normalizacao.mp4',
-50
-);
-
-INSERT INTO Aula VALUES (
-SEQ_AULA.NEXTVAL,
-3,
-'Componentes React',
-'componentes.mp4',
-55
-);
-
---------------------------------------------------
 -- MATRICULAS
---------------------------------------------------
+INSERT INTO Matricula VALUES (SEQ_MATRICULA.NEXTVAL, '22222222222', 1, SYSDATE, 'ATIVA', 60, 8.5);
+INSERT INTO Matricula VALUES (SEQ_MATRICULA.NEXTVAL, '22222222222', 2, SYSDATE, 'ATIVA', 35, 7.8);
+INSERT INTO Matricula VALUES (SEQ_MATRICULA.NEXTVAL, '33333333333', 3, SYSDATE, 'ATIVA', 80, 9.2);
+INSERT INTO Matricula VALUES (SEQ_MATRICULA.NEXTVAL, '77777777777', 1, SYSDATE-30, 'ATIVA', 100, 9.0);
+INSERT INTO Matricula VALUES (SEQ_MATRICULA.NEXTVAL, '88888888888', 1, SYSDATE-15, 'ATIVA', 45, 7.5);
+INSERT INTO Matricula VALUES (SEQ_MATRICULA.NEXTVAL, '99999999999', 1, SYSDATE-5, 'ATIVA', 10, NULL);
+INSERT INTO Matricula VALUES (SEQ_MATRICULA.NEXTVAL, '10101010101', 3, SYSDATE-60, 'CONCLUIDO', 100, 9.8);
+INSERT INTO Matricula VALUES (SEQ_MATRICULA.NEXTVAL, '20202020202', 3, SYSDATE-10, 'ATIVA', 25, 8.0);
+INSERT INTO Matricula VALUES (SEQ_MATRICULA.NEXTVAL, '30303030303', 4, SYSDATE-20, 'ATIVA', 80, 8.5);
+INSERT INTO Matricula VALUES (SEQ_MATRICULA.NEXTVAL, '40404040404', 4, SYSDATE-2, 'ATIVA', 5, NULL);
+INSERT INTO Matricula VALUES (SEQ_MATRICULA.NEXTVAL, '50505050505', 5, SYSDATE-40, 'CONCLUIDO', 100, 9.2);
+INSERT INTO Matricula VALUES (SEQ_MATRICULA.NEXTVAL, '60606060606', 5, SYSDATE-15, 'ATIVA', 60, 7.0);
+INSERT INTO Matricula VALUES (SEQ_MATRICULA.NEXTVAL, '70707070707', 4, SYSDATE-5, 'ATIVA', 15, NULL);
 
-INSERT INTO Matricula VALUES (
-SEQ_MATRICULA.NEXTVAL,
-'22222222222',
-1,
-SYSDATE,
-'ATIVA',
-60,
-8.5
-);
-
-INSERT INTO Matricula VALUES (
-SEQ_MATRICULA.NEXTVAL,
-'22222222222',
-2,
-SYSDATE,
-'ATIVA',
-35,
-7.8
-);
-
-INSERT INTO Matricula VALUES (
-SEQ_MATRICULA.NEXTVAL,
-'33333333333',
-3,
-SYSDATE,
-'ATIVA',
-80,
-9.2
-);
-
---------------------------------------------------
 -- AVALIACOES
---------------------------------------------------
-
-INSERT INTO Avaliacao VALUES (
-SEQ_AVALIACAO.NEXTVAL,
-'22222222222',
-1,
-9.5,
-'Excelente curso',
-SYSDATE
-);
-
-INSERT INTO Avaliacao VALUES (
-SEQ_AVALIACAO.NEXTVAL,
-'22222222222',
-2,
-8.7,
-'Curso muito bom',
-SYSDATE
-);
-
-INSERT INTO Avaliacao VALUES (
-SEQ_AVALIACAO.NEXTVAL,
-'33333333333',
-3,
-9.8,
-'Conteudo excelente',
-SYSDATE
-);
+INSERT INTO Avaliacao VALUES (SEQ_AVALIACAO.NEXTVAL, '22222222222', 1, 9.5, 'Excelente curso', SYSDATE);
+INSERT INTO Avaliacao VALUES (SEQ_AVALIACAO.NEXTVAL, '22222222222', 2, 8.7, 'Curso muito bom', SYSDATE);
+INSERT INTO Avaliacao VALUES (SEQ_AVALIACAO.NEXTVAL, '33333333333', 3, 9.8, 'Conteudo excelente', SYSDATE);
+INSERT INTO Avaliacao VALUES (SEQ_AVALIACAO.NEXTVAL, '77777777777', 1, 9.0, 'Ótima didática!', SYSDATE);
+INSERT INTO Avaliacao VALUES (SEQ_AVALIACAO.NEXTVAL, '88888888888', 1, 7.5, 'Bom, mas poderia ser mais prático.', SYSDATE);
+INSERT INTO Avaliacao VALUES (SEQ_AVALIACAO.NEXTVAL, '10101010101', 3, 10.0, 'Python mudou minha vida.', SYSDATE);
+INSERT INTO Avaliacao VALUES (SEQ_AVALIACAO.NEXTVAL, '30303030303', 4, 8.5, 'O professor domina o Figma.', SYSDATE);
+INSERT INTO Avaliacao VALUES (SEQ_AVALIACAO.NEXTVAL, '50505050505', 5, 9.5, 'Dicas de tráfego que funcionam!', SYSDATE);
 
 COMMIT;
