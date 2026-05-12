@@ -96,7 +96,7 @@ END PKG_GESTAO_ACADEMICA;
 
 -- REGRA 3: CÁLCULO DE DESCONTO DE MENSALIDADE (FUNÇÃO)
 -- Itens da Checklist PL atendidos: 
--- 5 (CREATE FUNCTION), 2 (Parâmetros IN), 8 (IF ELSIF)
+-- 5 (CREATE FUNCTION), 16 (Parâmetros IN), 8 (IF ELSIF)
 CREATE OR REPLACE FUNCTION Calcular_Desconto_Curso (
     p_cpf_aluno IN Aluno.CPF_Usuario%TYPE,
     p_valor_curso IN Curso.Valor%TYPE
