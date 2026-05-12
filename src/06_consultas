@@ -233,34 +233,17 @@ GROUP BY ID_Cidade
 HAVING COUNT(*) > 5;
 
 
--- Itens da Checklist PL atendidos: 
--- 9 (CASE WHEN), 12 (FOR IN LOOP), 16 (PARAMETROS OUT)
+-- BLOCO ANÔNIMO CORRIGIDO (FOR IN LOOP e CASE)
+-- Itens da Checklist PL atendidos: 12 (FOR IN LOOP), 3 (BLOCO ANÔNIMO)
 
-CREATE OR REPLACE PROCEDURE Analise_Desempenho_Aluno (
-    p_cpf_aluno IN VARCHAR2,
-    p_resultado OUT VARCHAR2 -- Parâmetro de SAÍDA
-) AS
-    v_media_geral NUMBER;
-BEGIN
-    -- Calcula a média do aluno em todos os seus cursos
-    SELECT AVG(Media) INTO v_media_geral FROM Matricula WHERE CPF_Aluno = p_cpf_aluno;
-
-    -- CASE WHEN: Avalia a situação do aluno
-    CASE 
-        WHEN v_media_geral >= 9 THEN p_resultado := 'EXCELENTE';
-        WHEN v_media_geral >= 7 THEN p_resultado := 'APROVADO';
-        ELSE p_resultado := 'RECUPERAÇÃO';
-    END CASE;
-END;
-/
-
--- BLOCO ANÔNIMO PARA TESTAR TUDO (FOR IN LOOP e CASE)
+SET SERVEROUTPUT ON;
 DECLARE
     v_res VARCHAR2(50);
 BEGIN
-    FOR r IN (SELECT CPF_Usuario, Nome FROM Usuario WHERE Tipo = 'ALUNO') LOOP
-        Analise_Desempenho_Aluno(r.CPF_Usuario, v_res);
+    -- Corrigido: Selecionando 'CPF' em vez de 'CPF_Usuario'
+    FOR r IN (SELECT CPF, Nome FROM Usuario WHERE Tipo = 'ALUNO') LOOP
+        Analise_Desempenho_Aluno(r.CPF, v_res);
         DBMS_OUTPUT.PUT_LINE('Aluno: ' || r.Nome || ' | Status: ' || v_res);
     END LOOP;
 END;
-
+Agradecemos por utilizar nossos serviços! Esperamos trabalhar com você novamente em breve.
